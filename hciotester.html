@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>HCIO Tester</title>
+    <script src="hciotester.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        #record-button.recording, #stop-recording-button.not-recording {
+            display: none;
+        }
+        #record-button.not-recording, #stop-recording-button.recording {
+            display: block;
+        }
+
+        #sound-test {
+            display: grid;
+            grid-auto-columns: max-content;
+            gap: 10px;
+        }
+
+        #key-test {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="recording-test" class="functionality-test">
+        <legend>Recording Test</legend>
+        <div id="recording-buttons">
+            <button id="record-button" class="not-recording">Record New Sound</button>
+            <button id="stop-recording-button" class="not-recording">Stop Recording</button>
+        </div>
+        <audio id="audio-test" controls style="display: none"></audio>
+    </fieldset>
+    <fieldset id="sound-test" class="functionality-test">
+        <legend>Sound Test</legend>
+        <button id="oscilator-button" style="grid-column: 1; grid-row: 1">Test Sound</button>
+        <label for="oscilator-pitch" style="grid-column: 1; grid-row: 2;">Pitch:</label>
+        <input type="range" id="oscilator-pitch" min="50" max="500" step="1" value="90" style="grid-column: 2; grid-row: 2;">
+        <span id="selected-oscilator-pitch" style="grid-column: 3; grid-row: 2;">90hz</span>
+        <label for="sound-wave-select" style="grid-column: 1; grid-row: 3">Wave Pattern:</label>
+        <select id="sound-wave-select" style="grid-column: 2; grid-row: 3">
+            <option selected value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+        </select>
+    </fieldset>
+    <fieldset id="key-test" class="functionality-test">
+        <legend>Key Test</legend>
+        <p id="key-display">No Key-Press has been registered yet</p>
+    </fieldset>
+</body>
+</html>
